@@ -46,13 +46,13 @@ jobs:
       - name: list chart directories
         id: chart_dirs
         run: |
-          find charts -type d -maxdepth 1
+          echo "::set-output name=charts::$(find charts -type d -maxdepth 1 -mindepth 1)"
       - name: echo chart_dirs
         run:
-          echo "${{ steps.chart_dirs.outputs.value }}"
+          echo "${{ steps.chart_dirs.outputs.charts }}"
       - name: run helm-docs
         run: |
-          CHARTS="${{ steps.chart_dirs.outputs.value }}"
+          CHARTS="${{ steps.chart_dirs.outputs.charts }}"
           echo $CHARTS
           for chart_dir in $CHARTS
           do
@@ -62,7 +62,7 @@ jobs:
 
       - name: Run Artifact Hub lint
         run: |
-          CHARTS="${{ steps.chart_dirs.outputs.value }}"
+          CHARTS="${{ steps.chart_dirs.outputs.charts }}"
           curl -s https://api.github.com/repos/artifacthub/hub/releases/latest | grep -E 'browser_download_url' | grep linux_amd64 | grep -Eo 'https://[^\"]*' | xargs wget -O - | tar -xz
           for chart_dir in $CHARTS
           do
