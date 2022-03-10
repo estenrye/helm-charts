@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - "charts/**"
+  workflow_dispatch:
+    branches:
+      - main
 
 permissions: read-all
 
