@@ -44,8 +44,10 @@ jobs:
       - name: run helm-docs
         run: |
           CHARTS=`find charts -type d -depth 1`
+          echo $CHARTS
           for chart_dir in $CHARTS
           do
+            echo $chart_dir
             helm-docs -t $chart_dir/README.md.gotmpl -o $chart_dir/README.md
           done
 
