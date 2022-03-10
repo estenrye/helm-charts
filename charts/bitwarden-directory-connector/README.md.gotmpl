@@ -8,47 +8,6 @@
 ![Alpine Linux 3.15.0](https://img.shields.io/badge/alpine_linux_3.15.0-0D597F?style=for-the-badge&logo=alpine-linux&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
-## Description
-
-{{ template "chart.description" . }}
-
-## Usage
-
-Please add the estenrye-helm-charts repository before installing any chart provided by this repository:
-
-```bash
-helm repo add estenrye-helm-charts https://estenrye.github.io/helm-charts
-helm repo update
-```
-
-### Installing the Chart
-
-To install the chart with the release name minecraft-exporter run:
-
-```bash
-helm install bwdc estenrye-helm-charts/bitwarden-directory-connector --version {{ .Version }}
-```
-
-After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
-
-To install the chart in a specific namespace use following commands:
-
-```bash
-kubectl create ns bitwarden
-helm install bwdc estenrye-helm-charts/bitwarden-directory-connector --namespace bitwarden --version {{ .Version }}
-```
-
-> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
-
-
-{{ template "chart.valuesSection" . }}
-
-{{ template "chart.homepageLine" . }}
-
-{{ template "chart.sourcesSection" . }}
-
-{{ template "chart.maintainersSection" . }}
-
 ## Legal Disclaimer 👮
 
 This project is not affiliated with Bitwarden Inc or the Bitwarden brand.

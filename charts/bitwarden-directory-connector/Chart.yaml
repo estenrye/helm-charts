@@ -5,12 +5,6 @@ description: |
   CronJob on a Kubernetes cluster.  It uses the `estenrye/bwdc`
   docker image.
 
-  Related Links
-    - [About Bitwarden Directory Connector](https://bitwarden.com/help/directory-sync/)
-    - [Bitwarden Directory Connector CLI Documentation](https://bitwarden.com/help/directory-sync-cli/)
-    - [Bitwarden Directory Connector GitHub Repository](https://github.com/bitwarden/directory-connector)
-    - [estenrye/bwdc Docker Image GitHub Repository](https://github.com/estenrye/docker-bwdc)
-
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -31,3 +25,28 @@ version: 0.0.1
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "v0.0.20"
+
+home: https://github.com/estenrye/helm-charts
+
+sources:
+  - https://github.com/estenrye/helm-charts/tree/main/charts/bitwarden-directory-connector
+  - https://github.com/estenrye/docker-bwdc
+
+maintainers:
+  - name: Esten Rye
+    url: https://github.com/estenrye
+
+annotations:
+  artifacthub.io/images: |
+    - name: bwdc
+      image: estenrye/bwdc:v0.0.20
+  artifacthub.io/links: |
+    - name: About Bitwarden Directory Connector
+      url: https://bitwarden.com/help/directory-sync/
+    - name: Bitwarden Directory Connector CLI Documentation
+      url: https://bitwarden.com/help/directory-sync-cli/
+    - name: Bitwarden Directory Connector GitHub Repository
+      url: https://github.com/bitwarden/directory-connector
+    - name: estenrye/bwdc Docker Image GitHub Repository
+      url: https://github.com/estenrye/docker-bwdc
+  artifacthub.io/operator: "false"

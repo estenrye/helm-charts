@@ -1,0 +1,41 @@
+# {{ .Name }} For Kubernetes
+## Description
+
+{{ template "chart.description" . }}
+
+## Usage
+
+Please add the estenrye-helm-charts repository before installing any chart provided by this repository:
+
+```bash
+helm repo add estenrye-helm-charts https://estenrye.github.io/helm-charts
+helm repo update
+```
+
+### Installing the Chart
+
+To install the chart with the release name {{ .Name }} run:
+
+```bash
+helm install {{ .Name }} estenrye-helm-charts/{{ .Name }} {{ .Version }}
+```
+
+After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
+
+To install the chart in a specific namespace use following commands:
+
+```bash
+kubectl create ns {{ .Name }}
+helm install {{ .Name }} estenrye-helm-charts/{{ .Name }} --namespace {{ .Name }} --version {{ .Version }}
+```
+
+> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
+
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.homepageLine" . }}
