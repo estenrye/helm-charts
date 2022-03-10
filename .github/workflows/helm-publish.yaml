@@ -43,10 +43,16 @@ jobs:
           wget https://github.com/norwoodj/helm-docs/releases/download/v${{ steps.brewfile_helm_docs_version.outputs.value }}/helm-docs_${{  steps.brewfile_helm_docs_version.outputs.value }}_Linux_x86_64.tar.gz
           tar -xvf helm-docs_${{ steps.brewfile_helm_docs_version.outputs.value }}_Linux_x86_64.tar.gz
           sudo mv helm-docs /usr/local/sbin
-
+      - name: list chart directories
+        id: chart_dirs
+        run: |
+          find charts -type d -depth 1
+      - name: echo chart_dirs
+        run:
+          echo "${{ steps.chart_dirs.outputs.value }}"
       - name: run helm-docs
         run: |
-          CHARTS=`find charts -type d -depth 1`
+          CHARTS="${{ steps.chart_dirs.outputs.value }}"
           echo $CHARTS
           for chart_dir in $CHARTS
           do
