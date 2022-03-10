@@ -52,13 +52,12 @@ jobs:
           echo "${{ steps.chart_dirs.outputs.charts }}"
       - name: run helm-docs
         run: |
-          CHARTS="${{ steps.chart_dirs.outputs.charts }}"
-          echo $CHARTS
-          for chart_dir in $CHARTS
-          do
-            echo $chart_dir
-            helm-docs -t $chart_dir/README.md.gotmpl -o $chart_dir/README.md
-          done
+          helm-docs \
+            --chart-search-root=charts \
+            --template-files=./_chart_README.md.title.gotmpl \
+            --template-files=README.md.badges.gotmpl \
+            --template-files=./_chart_README.md.body.gotmpl \
+            --template-files=README.md.legalgotmpl
 
       - name: Run Artifact Hub lint
         run: |
