@@ -1,0 +1,36 @@
+apiVersion: v1
+entries:
+  bitwarden-directory-connector:
+  - annotations:
+      artifacthub.io/images: |
+        - name: bwdc
+          image: estenrye/bwdc:v0.0.20
+      artifacthub.io/links: |
+        - name: About Bitwarden Directory Connector
+          url: https://bitwarden.com/help/directory-sync/
+        - name: Bitwarden Directory Connector CLI Documentation
+          url: https://bitwarden.com/help/directory-sync-cli/
+        - name: Bitwarden Directory Connector GitHub Repository
+          url: https://github.com/bitwarden/directory-connector
+        - name: estenrye/bwdc Docker Image GitHub Repository
+          url: https://github.com/estenrye/docker-bwdc
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: v0.0.20
+    created: "2022-03-10T23:51:59.310593917Z"
+    description: 'This Helm Chart installs the Bitwarden Directory Connector as a
+      CronJob on a Kubernetes cluster.  It uses the `estenrye/bwdc` docker image. '
+    digest: 4ded113142f55f66dee8addd5d968921e5b5b7a5f5abf8cec534df97091850e0
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: bitwarden-directory-connector
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/bitwarden-directory-connector
+    - https://github.com/estenrye/docker-bwdc
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/0.0.3-helm/bitwarden-directory-connector-0.0.3.tgz
+    version: 0.0.3
+generated: "2022-03-10T23:51:59.310614118Z"
