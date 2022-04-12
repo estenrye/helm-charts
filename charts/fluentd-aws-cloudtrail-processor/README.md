@@ -1,6 +1,6 @@
 # fluentd-aws-cloudtrail-processor For Kubernetes
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Alpine Linux 3.14.0](https://img.shields.io/badge/alpine_linux_3.14.0-0D597F?style=for-the-badge&logo=alpine-linux&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
@@ -24,7 +24,7 @@ helm repo update
 To install the chart with the release name fluentd-aws-cloudtrail-processor run:
 
 ```bash
-helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor 0.0.2
+helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor 0.0.3
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -33,7 +33,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns fluentd-aws-cloudtrail-processor
-helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor --namespace fluentd-aws-cloudtrail-processor --version 0.0.2
+helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor --namespace fluentd-aws-cloudtrail-processor --version 0.0.3
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -83,7 +83,7 @@ helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-c
 **Homepage:** <https://github.com/estenrye/helm-charts>
 # fluentd-aws-cloudtrail-processor
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 This Helm Chart installs FluentD and connects it to an AWS SQS Queue
 and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an
