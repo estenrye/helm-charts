@@ -15,4 +15,5 @@ pre-commit install-hooks
 
 ## Charts
 
-[estenrye/bitwarden-directory-connector](https://estenrye.github.io/helm-charts/charts/bitwarden-directory-connector/)
+- [estenrye/bitwarden-directory-connector](https://estenrye.github.io/helm-charts/charts/bitwarden-directory-connector/)
+- [estenrye/fluentd-aws-cloudtrail-processor](https://estenrye.github.io/helm-charts/charts/fluentd-aws-cloudtrail-processor/)

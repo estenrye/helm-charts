@@ -1,0 +1,81 @@
+# Default values for fluentd-aws-cloudtrail-processor.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## -- Number of replicas to deploy.
+replicaCount: 1
+
+image:
+  # -- Docker Image Repository Name.
+  repository: docker.io/estenrye/fluentd-cloudtrail
+
+  # -- Configures the image pull policy.  Valid options include
+  # [`Always`, `IfNotPresent`, `Never`]
+  pullPolicy: IfNotPresent
+
+  # -- Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+# -- image pull secrets to retrieve image if required.
+imagePullSecrets: []
+
+nameOverride: ""
+
+fullnameOverride: ""
+
+# -- When true, Service Account Token is automounted.
+automountServiceAccountToken: false
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: false
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- map of annotations to apply to the pod.
+podAnnotations: {}
+
+# -- map of pod security context settings to apply to the pod.
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- map of security context settings to apply to the pod.
+securityContext: {}
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+fluentd:
+  # -- The AWS IAM Access Key Id used to access the S3 bucket and SQS queue.
+  aws_access_key_id: YOUR_AWS_ACCESS_ID_HERE
+  # -- The AWS IAM Secret Access Key used to access the S3 bucket and SQS queue.
+  aws_secret_access_key: YOUR_AWS_SECRET_ACCESS_KEY_HERE
+  # -- The AWS Region hosting the S3 Bucket and SQS queue.
+  aws_region: us-west-2
+  # -- The AWS S3 Bucket that contains your AWS Cloudtrail Logs.
+  s3_bucket: YOUR_S3_BUCKET_NAME_HERE
+  # -- The AWS SQS Queue that receives AWS S3 Bucket Notifications
+  sqs_queue: YOUR_SQS_QUEUE_NAME_HERE
+  # -- When true, fluentd skips deletion of messages from the queue.
+  sqs_skip_delete: false
+  # -- Number of seconds to wait before polling the SQS queue.
+  sqs_wait_time_seconds: 20
+  # -- Number of seconds to wait between retrying errrors.
+  sqs_retry_error_interval: 300
