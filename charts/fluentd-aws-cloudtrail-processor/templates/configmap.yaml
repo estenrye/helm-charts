@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "fluentd-aws-cloudtrail-processor.fullname" . }}-fluent-conf
+  labels:
+    {{- include "fluentd-aws-cloudtrail-processor.labels" . | nindent 4 }}
+data:
+  fluent.conf: |
+    # Include config files in fluent.conf.d directory
+    @include fluent.conf.d/*.conf
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "fluentd-aws-cloudtrail-processor.fullname" . }}-fluent-conf-d
+  labels:
+    {{- include "fluentd-aws-cloudtrail-processor.labels" . | nindent 4 }}
+data:
+  aws-cloudtrail-source.conf: |
+    <source>
+      @type s3
+
+      <shared_credentials>
+        path /fluentd/aws/credentials
+        profile_name default
+      </shared_credentials>
+
+      s3_bucket {{ .Values.fluentd.s3_bucket }}
+      s3_region {{ .Values.fluentd.aws_region }}
+
+      add_object_metadata true
+      store_as gzip
+      format json
+
+      <sqs>
+        queue_name {{ .Values.fluentd.sqs_queue_name }}
+        skip_delete {{ .Values.fluentd.sqs_skip_delete }}
+        wait_time_seconds {{ .Values.fluentd.sqs_wait_time_seconds }}
+        retry_error_interval {{ .Values.fluentd.sqs_retry_error_interval }}
+      </sqs>
+    </source>
+  aws-cloudtrail-match.conf: ""
+  aws-cloudtrail-filter.conf: |
+    <filter **>
+      @type stdout
+      output_type json
+    </filter>
