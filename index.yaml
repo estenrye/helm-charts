@@ -33,4 +33,33 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/0.0.3-helm/bitwarden-directory-connector-0.0.3.tgz
     version: 0.0.3
-generated: "2022-03-10T23:51:59.310614118Z"
+  fluentd-aws-cloudtrail-processor:
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-04-12T23:51:21.19253779Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: 810d91c80cc9e9f8227c6a11eace5aad95a332aa6f17a198250180c998fdba80
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
+    version: 0.0.4
+generated: "2022-04-12T23:51:21.19254249Z"
