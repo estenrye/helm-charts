@@ -47,18 +47,13 @@ helm install bitwarden-directory-connector estenrye-helm-charts/bitwarden-direct
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| bitwarden.organization.client-id | string | `"organization.b5351047-89b6-820f-ad21016b6222"` | The Bitwarden API Client Id for the Organization. You must replace the value in this field.  You can find this by navigating to your Bitwarden Organization Settings and clicking View API Key. |
+| bitwarden.organization.client-secret | string | `"yUMB4trbqV1bavhEHGqbuGpz4AlHm9"` | The Bitwarden API Client Secret for the Organization. You must replace the value in this field.  You can find this by navigating to your Bitwarden Organization Settings and clicking View API Key. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"nginx"` |  |
-| image.tag | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | Configures the image pull policy.  Valid options include [`Always`, `IfNotPresent`, `Never`] |
+| image.repository | string | `"estenrye/bwdc"` | Docker Image Repository Name. |
+| image.tag | string | `nil` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
-| ingress.annotations | object | `{}` |  |
-| ingress.className | string | `""` |  |
-| ingress.enabled | bool | `false` |  |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0].path | string | `"/"` |  |
-| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
-| ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
@@ -66,11 +61,6 @@ helm install bitwarden-directory-connector estenrye-helm-charts/bitwarden-direct
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `80` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
 | tolerations | list | `[]` |  |
 
 ## Source Code
@@ -115,18 +105,13 @@ docker image.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| bitwarden.organization.client-id | string | `"organization.b5351047-89b6-820f-ad21016b6222"` | The Bitwarden API Client Id for the Organization. You must replace the value in this field.  You can find this by navigating to your Bitwarden Organization Settings and clicking View API Key. |
+| bitwarden.organization.client-secret | string | `"yUMB4trbqV1bavhEHGqbuGpz4AlHm9"` | The Bitwarden API Client Secret for the Organization. You must replace the value in this field.  You can find this by navigating to your Bitwarden Organization Settings and clicking View API Key. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"nginx"` |  |
-| image.tag | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | Configures the image pull policy.  Valid options include [`Always`, `IfNotPresent`, `Never`] |
+| image.repository | string | `"estenrye/bwdc"` | Docker Image Repository Name. |
+| image.tag | string | `nil` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
-| ingress.annotations | object | `{}` |  |
-| ingress.className | string | `""` |  |
-| ingress.enabled | bool | `false` |  |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths[0].path | string | `"/"` |  |
-| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
-| ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
@@ -134,11 +119,6 @@ docker image.
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `80` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
