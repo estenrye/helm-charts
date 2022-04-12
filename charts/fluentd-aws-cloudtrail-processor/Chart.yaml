@@ -1,9 +1,9 @@
 apiVersion: v2
-name: bitwarden-directory-connector
+name: fluentd-aws-cloudtrail-processor
 description: |
-  This Helm Chart installs the Bitwarden Directory Connector as a
-  CronJob on a Kubernetes cluster.  It uses the `estenrye/bwdc`
-  docker image.
+  This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+  and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an
+  EFK Instance.
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -18,19 +18,19 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.5
+version: 0.0.3
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "v0.0.20"
+appVersion: "latest"
 
 home: https://github.com/estenrye/helm-charts
 
 sources:
-  - https://github.com/estenrye/helm-charts/tree/main/charts/bitwarden-directory-connector
-  - https://github.com/estenrye/docker-bwdc
+  - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+  - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
 
 maintainers:
   - name: Esten Rye
@@ -38,15 +38,11 @@ maintainers:
 
 annotations:
   artifacthub.io/images: |
-    - name: bwdc
-      image: estenrye/bwdc:v0.0.20
+    - name: estenrye/fluentd-cloudtrail
+      image: docker.io/estenrye/fluentd-cloudtrail:latest
   artifacthub.io/links: |
-    - name: About Bitwarden Directory Connector
-      url: https://bitwarden.com/help/directory-sync/
-    - name: Bitwarden Directory Connector CLI Documentation
-      url: https://bitwarden.com/help/directory-sync-cli/
-    - name: Bitwarden Directory Connector GitHub Repository
-      url: https://github.com/bitwarden/directory-connector
-    - name: estenrye/bwdc Docker Image GitHub Repository
-      url: https://github.com/estenrye/docker-bwdc
+    - name: FluentD S3 Plugin GitHub
+      url: https://github.com/fluent/fluent-plugin-s3
+    - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+      url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
   artifacthub.io/operator: "false"
