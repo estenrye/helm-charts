@@ -36,6 +36,6 @@ helm install {{ .Name }} estenrye-helm-charts/{{ .Name }} --namespace {{ .Name }
 
 {{ template "chart.sourcesSection" . }}
 
-{{ template "chart.maintainersSection" . }}
+{{ template "chart.requirementsSection" . }}
 
-{{ template "chart.homepageLine" . }}
+{{ template "chart.maintainersSection" . }}

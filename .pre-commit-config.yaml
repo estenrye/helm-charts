@@ -10,10 +10,10 @@ repos:
           # The `./` makes it relative to the chart-search-root set above
           - --template-files=./_chart_README.md.title.gotmpl
 
-          # Repeating the flag adds this to the list, now [./_templates.gotmpl, README.md.gotmpl]
-          # A base filename makes it relative to each chart directory found
+          # # Repeating the flag adds this to the list, now [./_templates.gotmpl, README.md.gotmpl]
+          # # A base filename makes it relative to each chart directory found
           - --template-files=README.md.badges.gotmpl
 
           - --template-files=./_chart_README.md.body.gotmpl
 
-          - --template-files=README.md.legalgotmpl
+          # - --template-files=README.md.legalgotmpl
