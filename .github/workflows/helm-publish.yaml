@@ -75,4 +75,4 @@ jobs:
           config: "./.github/configs/cr.yaml"
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          CR_RELEASE_NAME_TEMPLATE: "{{ .Version }}-helm"
+          CR_SKIP_EXISTING: true
