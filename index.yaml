@@ -17,6 +17,38 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: v0.0.20
+    created: "2022-04-13T16:11:35.95869713Z"
+    description: 'This Helm Chart installs the Bitwarden Directory Connector as a
+      CronJob on a Kubernetes cluster.  It uses the `estenrye/bwdc` docker image. '
+    digest: 5081f35494f9f4a79f667a7d9da5fa3653d0ddc6991eb2ccd5002a2299217ac1
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: bitwarden-directory-connector
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/bitwarden-directory-connector
+    - https://github.com/estenrye/docker-bwdc
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/bitwarden-directory-connector-0.0.7-v0.0.20/bitwarden-directory-connector-0.0.7.tgz
+    version: 0.0.7
+  - annotations:
+      artifacthub.io/images: |
+        - name: bwdc
+          image: estenrye/bwdc:v0.0.20
+      artifacthub.io/links: |
+        - name: About Bitwarden Directory Connector
+          url: https://bitwarden.com/help/directory-sync/
+        - name: Bitwarden Directory Connector CLI Documentation
+          url: https://bitwarden.com/help/directory-sync-cli/
+        - name: Bitwarden Directory Connector GitHub Repository
+          url: https://github.com/bitwarden/directory-connector
+        - name: estenrye/bwdc Docker Image GitHub Repository
+          url: https://github.com/estenrye/docker-bwdc
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: v0.0.20
     created: "2022-04-12T23:56:21.918989618Z"
     description: 'This Helm Chart installs the Bitwarden Directory Connector as a
       CronJob on a Kubernetes cluster.  It uses the `estenrye/bwdc` docker image. '
@@ -78,6 +110,34 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: latest
+    created: "2022-04-13T16:11:36.069931592Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: 480525fc96b2a809c645c473db109ff7bae1a2c3de7e1355fdb8d8335b28a62c
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.6-latest/fluentd-aws-cloudtrail-processor-0.0.6.tgz
+    version: 0.0.6
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
     created: "2022-04-12T23:56:22.062859677Z"
     description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
       and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
@@ -122,4 +182,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
     version: 0.0.4
-generated: "2022-04-12T23:56:22.062871077Z"
+generated: "2022-04-13T16:11:36.069958194Z"
