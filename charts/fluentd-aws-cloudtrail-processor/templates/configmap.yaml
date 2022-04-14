@@ -53,6 +53,7 @@ data:
       @type elasticsearch
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
+      path {{ .Values.fluentd.elasticsearch_path }}
       port {{ .Values.fluentd.elasticsearch_port }}
       user {{ .Values.fluentd.elasticsearch_username }}
       password {{ .Values.fluentd.elasticsearch_password }}
