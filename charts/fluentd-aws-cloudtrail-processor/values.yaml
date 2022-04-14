@@ -65,17 +65,49 @@ affinity: {}
 fluentd:
   # -- The AWS IAM Access Key Id used to access the S3 bucket and SQS queue.
   aws_access_key_id: YOUR_AWS_ACCESS_ID_HERE
+  
   # -- The AWS IAM Secret Access Key used to access the S3 bucket and SQS queue.
   aws_secret_access_key: YOUR_AWS_SECRET_ACCESS_KEY_HERE
+  
   # -- The AWS Region hosting the S3 Bucket and SQS queue.
   aws_region: us-west-2
+  
   # -- The AWS S3 Bucket that contains your AWS Cloudtrail Logs.
   s3_bucket: YOUR_S3_BUCKET_NAME_HERE
+  
   # -- The AWS SQS Queue that receives AWS S3 Bucket Notifications
   sqs_queue: YOUR_SQS_QUEUE_NAME_HERE
+  
   # -- When true, fluentd skips deletion of messages from the queue.
   sqs_skip_delete: false
+  
   # -- Number of seconds to wait before polling the SQS queue.
   sqs_wait_time_seconds: 20
+  
   # -- Number of seconds to wait between retrying errrors.
   sqs_retry_error_interval: 300
+  
+  # -- Enable Output to Standard Out
+  enable_stdout: true
+  
+  # -- Enable Output to Elasticsearch
+  enable_elasticsearch: false
+  
+  # -- Sets the url scheme for the Elasticsearch server
+  elasticsearch_scheme: http
+  
+  # -- Sets the hostname of the Elasticsearch server
+  elasticsearch_host: localhost
+  
+  # -- Sets the port of the Elasticsearch server
+  elasticsearch_port: 9200
+
+  # -- Sets the username used to connect to the Elasticsearch server
+  elasticsearch_username: your_elastic_user_here
+
+  # -- Sets the password used to connect to the Elasticsearch server
+  elasticsearch_password: your_elastic_password_here
+
+  # -- Sets the Logstash prefix of the Elasticsearch index name.
+  # Default value results in `logstash-%Y.%m.%d` as the index name.
+  elasticsearch_logstash_prefix: logstash
