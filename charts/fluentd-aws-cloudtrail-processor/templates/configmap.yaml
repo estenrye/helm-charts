@@ -32,7 +32,6 @@ data:
 
       add_object_metadata true
       store_as gzip
-      format json
 
       <sqs>
         queue_name {{ .Values.fluentd.sqs_queue_name }}
@@ -47,6 +46,12 @@ data:
       tag aws-cloudtrail
       split_key Records 
     </match>
+{{- if .Values.fluentd.enable_stdout_raw }}
+    <match aws-cloudtrail-raw>
+      @type stdout
+      output_type json
+    </match>
+{{- end }}
 {{- if .Values.fluentd.enable_stdout }}
     <match aws-cloudtrail>
       @type stdout

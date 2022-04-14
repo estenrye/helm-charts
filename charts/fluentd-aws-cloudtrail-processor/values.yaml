@@ -87,9 +87,12 @@ fluentd:
   # -- Number of seconds to wait between retrying errrors.
   sqs_retry_error_interval: 300
   
-  # -- Enable Output to Standard Out
+  # -- Enable Output to Standard Out of Split Records
   enable_stdout: true
   
+  # -- Enable Output to Standard Out of Raw CloudTrail Logs
+  enable_stdout_raw: false
+
   # -- Enable Output to Elasticsearch
   enable_elasticsearch: false
   
