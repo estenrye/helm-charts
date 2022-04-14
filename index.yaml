@@ -142,6 +142,34 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: latest
+    created: "2022-04-14T22:22:40.149904783Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: c1c413cf2497171c7d60f689fd255326bc0afdbca830079aa795acaf7b7fbf49
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.12-latest/fluentd-aws-cloudtrail-processor-0.0.12.tgz
+    version: 0.0.12
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
     created: "2022-04-14T20:58:51.238931362Z"
     description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
       and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
@@ -326,4 +354,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
     version: 0.0.4
-generated: "2022-04-14T20:58:51.238968962Z"
+generated: "2022-04-14T22:22:40.15005679Z"
