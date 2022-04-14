@@ -20,6 +20,7 @@ data:
   aws-cloudtrail-source.conf: |
     <source>
       @type s3
+        tag aws-cloudtrail
 
       <shared_credentials>
         path /fluentd/aws/credentials
@@ -40,9 +41,23 @@ data:
         retry_error_interval {{ .Values.fluentd.sqs_retry_error_interval }}
       </sqs>
     </source>
-  aws-cloudtrail-match.conf: ""
-  aws-cloudtrail-filter.conf: |
-    <filter **>
+  aws-cloudtrail-match.conf: |
+{{- if .Values.fluentd.enable_stdout }}
+    <match aws-cloudtrail>
       @type stdout
       output_type json
-    </filter>
+    </match>
+{{- end }}
+{{- if .Values.fluentd.enable_elasticsearch }}
+    <match aws-cloudtrail>
+      @type elasticsearch
+      scheme {{ .Values.fluentd.elasticsearch_scheme }}
+      host {{ .Values.fluentd.elasticsearch_host }}
+      port {{ .Values.fluentd.elasticsearch_port }}
+      user {{ .Values.fluentd.elasticsearch_username }}
+      password {{ .Values.fluentd.elasticsearch_password }}
+      logstash_format true
+      logstash_prefix {{ .Values.fluentd.elasticsearch_logstash_prefix }}
+    </match>
+{{- end }}
+  aws-cloudtrail-filter.conf: ""
