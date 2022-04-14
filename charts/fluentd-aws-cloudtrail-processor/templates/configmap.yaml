@@ -46,18 +46,6 @@ data:
       tag aws-cloudtrail
       split_key Records 
     </match>
-{{- if .Values.fluentd.enable_stdout_raw }}
-    <match aws-cloudtrail-raw>
-      @type stdout
-      output_type json
-    </match>
-{{- end }}
-{{- if .Values.fluentd.enable_stdout }}
-    <match aws-cloudtrail>
-      @type stdout
-      output_type json
-    </match>
-{{- end }}
 {{- if .Values.fluentd.enable_elasticsearch }}
     <match aws-cloudtrail>
       @type elasticsearch
@@ -71,4 +59,16 @@ data:
       logstash_prefix {{ .Values.fluentd.elasticsearch_logstash_prefix }}
     </match>
 {{- end }}
-  aws-cloudtrail-filter.conf: ""
+  aws-cloudtrail-filter.conf: |
+{{- if .Values.fluentd.enable_stdout_raw }}
+    <filter aws-cloudtrail-raw>
+      @type stdout
+      output_type json
+    </filter>
+{{- end }}
+{{- if .Values.fluentd.enable_stdout }}
+    <filter aws-cloudtrail>
+      @type stdout
+      output_type json
+    </filter>
+{{- end }}
