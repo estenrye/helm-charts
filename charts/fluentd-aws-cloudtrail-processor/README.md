@@ -1,6 +1,6 @@
 # fluentd-aws-cloudtrail-processor For Kubernetes
 
-![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Alpine Linux 3.14.0](https://img.shields.io/badge/alpine_linux_3.14.0-0D597F?style=for-the-badge&logo=alpine-linux&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
@@ -24,7 +24,7 @@ helm repo update
 To install the chart with the release name fluentd-aws-cloudtrail-processor run:
 
 ```bash
-helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor 0.0.9
+helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor 0.0.10
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -33,7 +33,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns fluentd-aws-cloudtrail-processor
-helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor --namespace fluentd-aws-cloudtrail-processor --version 0.0.9
+helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-cloudtrail-processor --namespace fluentd-aws-cloudtrail-processor --version 0.0.10
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -50,6 +50,7 @@ helm install fluentd-aws-cloudtrail-processor estenrye-helm-charts/fluentd-aws-c
 | fluentd.elasticsearch_host | string | `"localhost"` | Sets the hostname of the Elasticsearch server |
 | fluentd.elasticsearch_logstash_prefix | string | `"logstash"` | Sets the Logstash prefix of the Elasticsearch index name. Default value results in `logstash-%Y.%m.%d` as the index name. |
 | fluentd.elasticsearch_password | string | `"your_elastic_password_here"` | Sets the password used to connect to the Elasticsearch server |
+| fluentd.elasticsearch_path | string | `"/logs"` | Sets the rest api endpoint of Elasticsearch to post write requests. |
 | fluentd.elasticsearch_port | int | `9200` | Sets the port of the Elasticsearch server |
 | fluentd.elasticsearch_scheme | string | `"http"` | Sets the url scheme for the Elasticsearch server |
 | fluentd.elasticsearch_username | string | `"your_elastic_user_here"` | Sets the username used to connect to the Elasticsearch server |
