@@ -111,3 +111,6 @@ fluentd:
   # -- Sets the Logstash prefix of the Elasticsearch index name.
   # Default value results in `logstash-%Y.%m.%d` as the index name.
   elasticsearch_logstash_prefix: logstash
+
+  # -- Sets the rest api endpoint of Elasticsearch to post write requests.
+  elasticsearch_path: /logs
