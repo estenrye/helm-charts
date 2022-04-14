@@ -20,7 +20,7 @@ data:
   aws-cloudtrail-source.conf: |
     <source>
       @type s3
-        tag aws-cloudtrail
+        tag aws-cloudtrail-raw
 
       <shared_credentials>
         path /fluentd/aws/credentials
@@ -42,6 +42,11 @@ data:
       </sqs>
     </source>
   aws-cloudtrail-match.conf: |
+    <match aws-cloudtrail-raw>
+      @type record_splitter
+      tag aws-cloudtrail
+      split_key Records 
+    </match>
 {{- if .Values.fluentd.enable_stdout }}
     <match aws-cloudtrail>
       @type stdout
