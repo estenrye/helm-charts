@@ -42,11 +42,6 @@ data:
       </sqs>
     </source>
   aws-cloudtrail-match.conf: |
-    <match aws-cloudtrail-raw>
-      @type record_splitter
-      tag aws-cloudtrail
-      split_key Records 
-    </match>
 {{- if .Values.fluentd.enable_stdout }}
     <match aws-cloudtrail>
       @type stdout
@@ -66,4 +61,9 @@ data:
       logstash_prefix {{ .Values.fluentd.elasticsearch_logstash_prefix }}
     </match>
 {{- end }}
-  aws-cloudtrail-filter.conf: ""
+  aws-cloudtrail-filter.conf: |
+    <filter aws-cloudtrail-raw>
+      @type record_splitter
+      tag aws-cloudtrail
+      split_key Records 
+    </filter>
