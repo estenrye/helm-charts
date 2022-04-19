@@ -20,8 +20,8 @@ data:
   aws-cloudtrail-source.conf: |
     <source>
       @type s3
-        tag aws-cloudtrail-raw
-
+      tag aws-cloudtrail-raw
+      
       <shared_credentials>
         path /fluentd/aws/credentials
         profile_name default
@@ -32,7 +32,6 @@ data:
 
       add_object_metadata true
       store_as gzip
-      format json
 
       <sqs>
         queue_name {{ .Values.fluentd.sqs_queue_name }}
@@ -40,22 +39,15 @@ data:
         wait_time_seconds {{ .Values.fluentd.sqs_wait_time_seconds }}
         retry_error_interval {{ .Values.fluentd.sqs_retry_error_interval }}
       </sqs>
+      <parse>
+        @type json
+      </parse>
     </source>
   aws-cloudtrail-match.conf: |
-    <match aws-cloudtrail-raw>
-      @type record_splitter
-      tag aws-cloudtrail
-      split_key Records 
-    </match>
-{{- if .Values.fluentd.enable_stdout }}
-    <match aws-cloudtrail>
-      @type stdout
-      output_type json
-    </match>
-{{- end }}
 {{- if .Values.fluentd.enable_elasticsearch }}
-    <match aws-cloudtrail>
+    <match aws-cloudtrail-records>
       @type elasticsearch
+      suppress_type_name true
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
       path {{ .Values.fluentd.elasticsearch_path }}
@@ -66,4 +58,22 @@ data:
       logstash_prefix {{ .Values.fluentd.elasticsearch_logstash_prefix }}
     </match>
 {{- end }}
-  aws-cloudtrail-filter.conf: ""
+{{- if .Values.fluentd.enable_stdout_raw }}
+    <filter aws-cloudtrail-raw>
+      @type stdout
+      output_type json
+    </filter>
+{{- end }}
+{{- if .Values.fluentd.enable_stdout }}
+    <match aws-cloudtrail-records>
+      @type stdout
+      output_type json
+    </match>
+{{- end }}
+  aws-cloudtrail-filter.conf: |
+    <match aws-cloudtrail-raw>
+      @type record_splitter
+      tag aws-cloudtrail-records
+      split_key Records
+      keep_keys ["s3_bucket","s3_key"]
+    </match>
