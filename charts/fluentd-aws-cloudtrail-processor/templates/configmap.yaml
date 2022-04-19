@@ -20,8 +20,8 @@ data:
   aws-cloudtrail-source.conf: |
     <source>
       @type s3
-        tag aws-cloudtrail-raw
-
+      tag aws-cloudtrail-raw
+      
       <shared_credentials>
         path /fluentd/aws/credentials
         profile_name default
@@ -39,15 +39,13 @@ data:
         wait_time_seconds {{ .Values.fluentd.sqs_wait_time_seconds }}
         retry_error_interval {{ .Values.fluentd.sqs_retry_error_interval }}
       </sqs>
+      <parse>
+        @type json
+      </parse>
     </source>
   aws-cloudtrail-match.conf: |
-    <match aws-cloudtrail-raw>
-      @type record_splitter
-      tag aws-cloudtrail
-      split_key Records 
-    </match>
 {{- if .Values.fluentd.enable_elasticsearch }}
-    <match aws-cloudtrail-records>
+    <match **>
       @type elasticsearch
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
@@ -66,15 +64,13 @@ data:
       output_type json
     </filter>
 {{- end }}
-
-    <match aws-cloudtrail-raw>
-      type record_splitter
+    <filter aws-cloudtrail-raw>
+      @type split_array
       tag aws-cloudtrail-records
       split_key Records
-      keep_keys ["s3_bucket","s3_key"]
-    </match>
+    </filter>
 {{- if .Values.fluentd.enable_stdout }}
-    <match aws-cloudtrail-records>
+    <match **>
       @type stdout
       output_type json
     </match>
