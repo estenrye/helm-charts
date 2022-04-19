@@ -77,5 +77,5 @@ data:
     <match aws-cloudtrail-records>
       @type stdout
       output_type json
-    </filter>
+    </match>
 {{- end }}
