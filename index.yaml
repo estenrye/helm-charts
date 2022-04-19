@@ -142,6 +142,34 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: latest
+    created: "2022-04-19T15:34:08.149717819Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: 3d4ff786952f5bd886001d9293bb9ccada96a9cb8773451f35eebfca769590d6
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.18-latest/fluentd-aws-cloudtrail-processor-0.0.18.tgz
+    version: 0.0.18
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
     created: "2022-04-19T15:20:49.661643842Z"
     description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
       and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
@@ -494,4 +522,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
     version: 0.0.4
-generated: "2022-04-19T15:20:49.661868844Z"
+generated: "2022-04-19T15:34:08.149806219Z"
