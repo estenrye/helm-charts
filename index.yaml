@@ -142,6 +142,34 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: latest
+    created: "2022-04-19T15:37:58.5465915Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: c010b8514337fb47fb3101f97b6bd72df24426e096bdb4b4e7d2dedeee7d16bd
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.19-latest/fluentd-aws-cloudtrail-processor-0.0.19.tgz
+    version: 0.0.19
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
     created: "2022-04-19T15:34:08.149717819Z"
     description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
       and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
@@ -522,4 +550,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
     version: 0.0.4
-generated: "2022-04-19T15:34:08.149806219Z"
+generated: "2022-04-19T15:37:58.546713301Z"
