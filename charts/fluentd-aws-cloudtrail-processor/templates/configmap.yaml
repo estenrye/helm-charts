@@ -47,7 +47,7 @@ data:
       split_key Records 
     </match>
 {{- if .Values.fluentd.enable_elasticsearch }}
-    <match aws-cloudtrail>
+    <match aws-cloudtrail-records>
       @type elasticsearch
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
@@ -66,8 +66,13 @@ data:
       output_type json
     </filter>
 {{- end }}
+    <filter aws-cloudtrail-raw>
+      @type split_record
+      tag aws-cloudtrail-records
+      key_name Records
+    </filter>
 {{- if .Values.fluentd.enable_stdout }}
-    <filter aws-cloudtrail>
+    <filter aws-cloudtrail-records>
       @type stdout
       output_type json
     </filter>
