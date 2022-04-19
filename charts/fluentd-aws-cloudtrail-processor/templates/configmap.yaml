@@ -47,6 +47,7 @@ data:
 {{- if .Values.fluentd.enable_elasticsearch }}
     <match aws-cloudtrail-records>
       @type elasticsearch
+      suppress_type_name true
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
       path {{ .Values.fluentd.elasticsearch_path }}
@@ -71,7 +72,7 @@ data:
 {{- end }}
   aws-cloudtrail-filter.conf: |
     <match aws-cloudtrail-raw>
-      type record_splitter
+      @type record_splitter
       tag aws-cloudtrail-records
       split_key Records
       keep_keys ["s3_bucket","s3_key"]
