@@ -45,7 +45,7 @@ data:
     </source>
   aws-cloudtrail-match.conf: |
 {{- if .Values.fluentd.enable_elasticsearch }}
-    <match **>
+    <match aws-cloudtrail-records>
       @type elasticsearch
       scheme {{ .Values.fluentd.elasticsearch_scheme }}
       host {{ .Values.fluentd.elasticsearch_host }}
@@ -57,21 +57,22 @@ data:
       logstash_prefix {{ .Values.fluentd.elasticsearch_logstash_prefix }}
     </match>
 {{- end }}
-  aws-cloudtrail-filter.conf: |
 {{- if .Values.fluentd.enable_stdout_raw }}
     <filter aws-cloudtrail-raw>
       @type stdout
       output_type json
     </filter>
 {{- end }}
-    <filter aws-cloudtrail-raw>
-      @type split_array
-      tag aws-cloudtrail-records
-      split_key Records
-    </filter>
 {{- if .Values.fluentd.enable_stdout }}
-    <match **>
+    <match aws-cloudtrail-records>
       @type stdout
       output_type json
     </match>
 {{- end }}
+  aws-cloudtrail-filter.conf: |
+    <match aws-cloudtrail-raw>
+      type record_splitter
+      tag aws-cloudtrail-records
+      split_key Records
+      keep_keys ["s3_bucket","s3_key"]
+    </match>
