@@ -66,13 +66,15 @@ data:
       output_type json
     </filter>
 {{- end }}
-    <filter aws-cloudtrail-raw>
-      @type split_record
+
+    <match aws-cloudtrail-raw>
+      type record_splitter
       tag aws-cloudtrail-records
-      key_name Records
-    </filter>
+      split_key Records
+      keep_keys ["s3_bucket","s3_key"]
+    </match>
 {{- if .Values.fluentd.enable_stdout }}
-    <filter aws-cloudtrail-records>
+    <match aws-cloudtrail-records>
       @type stdout
       output_type json
     </filter>
