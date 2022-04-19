@@ -142,6 +142,34 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: latest
+    created: "2022-04-19T17:22:39.738669171Z"
+    description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
+      and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
+    digest: cdd1490953307cf1fefb816fb41aa873c854e21204fee02211e3f17d6d2056bb
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: fluentd-aws-cloudtrail-processor
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/fluentd-aws-cloudtrail-processor
+    - https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.1.0-latest/fluentd-aws-cloudtrail-processor-0.1.0.tgz
+    version: 0.1.0
+  - annotations:
+      artifacthub.io/images: |
+        - name: estenrye/fluentd-cloudtrail
+          image: docker.io/estenrye/fluentd-cloudtrail:latest
+      artifacthub.io/links: |
+        - name: FluentD S3 Plugin GitHub
+          url: https://github.com/fluent/fluent-plugin-s3
+        - name: estenrye/fluentd-cloudtrail Docker Image GitHub Repository
+          url: https://github.com/estenrye/slides/docker/estenrye/fluentd-cloudtrail
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: latest
     created: "2022-04-19T15:37:58.5465915Z"
     description: 'This Helm Chart installs FluentD and connects it to an AWS SQS Queue
       and AWS S3 Bucket to consume AWS Cloudtrail logs and Push them to an EFK Instance. '
@@ -550,4 +578,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/fluentd-aws-cloudtrail-processor-0.0.4/fluentd-aws-cloudtrail-processor-0.0.4.tgz
     version: 0.0.4
-generated: "2022-04-19T15:37:58.546713301Z"
+generated: "2022-04-19T17:22:39.738900182Z"
