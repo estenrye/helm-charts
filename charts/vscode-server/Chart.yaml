@@ -21,4 +21,28 @@ version: 0.1.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.16.0"
+appVersion: "4.4.0"
+
+home: https://github.com/estenrye/helm-charts
+
+sources:
+  - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server
+  - https://github.com/cdr/code-server
+  - https://github.com/linuxserver/docker-code-server
+
+maintainers:
+  - name: Esten Rye
+    url: https://github.com/estenrye
+
+annotations:
+  artifacthub.io/images: |
+    - name: linuxserver/code-server
+      image: linuxserver/code-server:4.4.0
+  artifacthub.io/links: |
+    - name: code-server Documentation
+      url: https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md
+    - name: LinuxServer.io Fleet - linuxserver/code-server
+      url: https://fleet.linuxserver.io/image?name=linuxserver/code-server
+    - name: How To Set Up the code-server Cloud IDE Platform on DigitalOcean Kubernetes
+      url: https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-digitalocean-kubernetes
+  artifacthub.io/operator: "false"

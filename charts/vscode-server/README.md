@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -42,7 +42,7 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"nginx"` |  |
+| image.repository | string | `"linuxserver/code-server"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
@@ -66,3 +66,14 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | serviceAccount.name | string | `""` |  |
 | tolerations | list | `[]` |  |
 
+## Source Code
+
+* <https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server>
+* <https://github.com/cdr/code-server>
+* <https://github.com/linuxserver/docker-code-server>
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| Esten Rye |  | https://github.com/estenrye |
