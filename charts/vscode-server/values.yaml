@@ -2,32 +2,52 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+password:
+  # -- When true, enables creation of secret containing the code
+  # server password and mapping of that secret to the PASSWORD
+  # environment variable.
+  enabled: false
+
+  # -- Value of the password to set and map to the PASSWORD
+  # environment variable.
+  value: ""
+
+# -- Number of replicas to provision.
 replicaCount: 1
 
 image:
+  # -- Docker Image Repository Name.
   repository: linuxserver/code-server
+
+  # -- Configures the image pull policy.  Valid options include
+  # [`Always`, `IfNotPresent`, `Never`]
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  
+  # -- (string) Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# -- image pull secrets to retrieve image if required.
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+# -- map of annotations to apply to the pod.
 podAnnotations: {}
 
+# -- map of pod security context settings to apply to the pod.
 podSecurityContext: {}
   # fsGroup: 2000
 
+# -- map of security context settings to apply to the pod.
 securityContext: {}
   # capabilities:
   #   drop:

@@ -41,10 +41,10 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/code-server"` |  |
-| image.tag | string | `""` |  |
-| imagePullSecrets | list | `[]` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | Configures the image pull policy.  Valid options include [`Always`, `IfNotPresent`, `Never`] |
+| image.repository | string | `"linuxserver/code-server"` | Docker Image Repository Name. |
+| image.tag | string | `""` | (string) Overrides the image tag whose default is the chart appVersion. |
+| imagePullSecrets | list | `[]` | image pull secrets to retrieve image if required. |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
@@ -54,16 +54,18 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
-| replicaCount | int | `1` |  |
+| password.enabled | bool | `false` | When true, enables creation of secret containing the code server password and mapping of that secret to the PASSWORD environment variable. |
+| password.value | string | `""` | Value of the password to set and map to the PASSWORD environment variable. |
+| podAnnotations | object | `{}` | map of annotations to apply to the pod. |
+| podSecurityContext | object | `{}` | map of pod security context settings to apply to the pod. |
+| replicaCount | int | `1` | Number of replicas to provision. |
 | resources | object | `{}` |  |
-| securityContext | object | `{}` |  |
+| securityContext | object | `{}` | map of security context settings to apply to the pod. |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` |  |
 
 ## Source Code
