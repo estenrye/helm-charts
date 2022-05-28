@@ -57,8 +57,12 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  # -- specifies the Kubernetes Service type to create.
   type: ClusterIP
+  # -- port the service should receive traffic on.
   port: 80
+  # -- port the service should sent traffic to.
+  containerPort: 8443
 
 ingress:
   enabled: false

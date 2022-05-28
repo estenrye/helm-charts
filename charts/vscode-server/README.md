@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -21,7 +21,7 @@ helm repo update
 To install the chart with the release name vscode-server run:
 
 ```bash
-helm install vscode-server estenrye-helm-charts/vscode-server 0.1.1
+helm install vscode-server estenrye-helm-charts/vscode-server 0.1.2
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -30,7 +30,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns vscode-server
-helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.1.1
+helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.1.2
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -61,8 +61,9 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | replicaCount | int | `1` | Number of replicas to provision. |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` | map of security context settings to apply to the pod. |
-| service.port | int | `80` |  |
-| service.type | string | `"ClusterIP"` |  |
+| service.containerPort | int | `8443` | port the service should sent traffic to. |
+| service.port | int | `80` | port the service should receive traffic on. |
+| service.type | string | `"ClusterIP"` | specifies the Kubernetes Service type to create. |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
