@@ -72,6 +72,6 @@ spec:
       {{- if .Values.persistence.enabled }}
       volumes:
         - name: config
-          persistentVolumeClaimRef:
+          persistentVolumeClaim:
             claimName: {{ include "vscode-server.fullname" . }}-config
       {{- end }}
