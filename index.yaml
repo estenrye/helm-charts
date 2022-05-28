@@ -621,6 +621,36 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-05-28T06:14:48.568371772Z"
+    description: A Helm chart for Kubernetes
+    digest: ef407229eead5f40d3651a7fb2a33737f32fd331972461a0b366aae74b1e8f3a
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: vscode-server
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server
+    - https://github.com/cdr/code-server
+    - https://github.com/linuxserver/docker-code-server
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.2.1-4.4.0/vscode-server-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/images: |
+        - name: linuxserver/code-server
+          image: linuxserver/code-server:4.4.0
+      artifacthub.io/links: |
+        - name: code-server Documentation
+          url: https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md
+        - name: LinuxServer.io Fleet - linuxserver/code-server
+          url: https://fleet.linuxserver.io/image?name=linuxserver/code-server
+        - name: How To Set Up the code-server Cloud IDE Platform on DigitalOcean Kubernetes
+          url: https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-digitalocean-kubernetes
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-05-28T06:07:13.184384353Z"
     description: A Helm chart for Kubernetes
     digest: 7aa667df897da5281d508e27f2efa906308d8f68e111c0575f4a6e59df416d63
@@ -727,4 +757,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-05-28T06:07:13.184546154Z"
+generated: "2022-05-28T06:14:48.568471973Z"
