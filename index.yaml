@@ -623,6 +623,38 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-06-02T08:04:39.642594057Z"
+    description: A Helm chart for Kubernetes
+    digest: 23cfcc266b0c426b2e09f20791121595f40c6ec573369f29a99cc5c1d5e392da
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: vscode-server
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server
+    - https://github.com/cdr/code-server
+    - https://github.com/linuxserver/docker-code-server
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.3.10-4.4.0/vscode-server-0.3.10.tgz
+    version: 0.3.10
+  - annotations:
+      artifacthub.io/images: |
+        - name: linuxserver/code-server
+          image: linuxserver/code-server:4.4.0
+        - name: library/docker
+          image: library/docker:dind-rootless
+      artifacthub.io/links: |
+        - name: code-server Documentation
+          url: https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md
+        - name: LinuxServer.io Fleet - linuxserver/code-server
+          url: https://fleet.linuxserver.io/image?name=linuxserver/code-server
+        - name: How To Set Up the code-server Cloud IDE Platform on DigitalOcean Kubernetes
+          url: https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-digitalocean-kubernetes
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-06-02T07:56:40.206929347Z"
     description: A Helm chart for Kubernetes
     digest: 4d8f975c37fbf3dc35fa51a0c585467bc15fdc7a1582ca9619c9127129cd1508
@@ -1045,4 +1077,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-02T07:56:40.207086248Z"
+generated: "2022-06-02T08:04:39.64290846Z"
