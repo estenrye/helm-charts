@@ -1,9 +1,9 @@
 {{- if .Values.vscode_server.ingress.enabled -}}
 {{- $fullName := include "vscode-server.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
-{{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
-  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
-  {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
+{{- $svcPort := .Values.vscode_server.service.port -}}
+{{- if and .Values.vscode_server.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
+  {{- if not (hasKey .Values.vscode_server.ingress.annotations "kubernetes.io/ingress.class") }}
+  {{- $_ := set .Values.vscode_server.ingress.annotations "kubernetes.io/ingress.class" .Values.vscode_server.ingress.className}}
   {{- end }}
 {{- end }}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
