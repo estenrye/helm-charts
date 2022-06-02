@@ -34,7 +34,7 @@ spec:
             - name: DOCKER_HOST
               value: tcp://0.0.0.0:2376
             - name: DOCKER_TLS_VERIFY
-              value: 1
+              value: '1'
             - name: DOCKER_CONFIG
               value: /config/.docker
             - name: DOCKER_CERT_PATH
