@@ -27,11 +27,19 @@ spec:
       containers:
         - name: code-server
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.vscode_server.securityContext | nindent 12 }}
           image: "{{ .Values.vscode_server.image.repository }}:{{ .Values.vscode_server.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.password.enabled }}
+          imagePullPolicy: {{ .Values.vscode_server.image.pullPolicy }}
           env:
+            - name: DOCKER_HOST
+              value: tcp://0.0.0.0:2376
+            - name: DOCKER_TLS_VERIFY
+              value: 1
+            - name: DOCKER_CONFIG
+              value: /config/.docker
+            - name: DOCKER_CERT_PATH
+              value: /docker-tls-certs/client
+          {{- if .Values.vscode_server.password.enabled }}
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -52,11 +60,38 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
-          {{- if .Values.vscode_server.persistence.enabled }}
           volumeMounts:
+            - mountPath: /docker-tls-secrets
+              name: docker-tls-secrets
+          {{- if .Values.vscode_server.persistence.enabled }}
             - mountPath: /config
               name: config
           {{- end }}
+        - name: dind-daemon
+          securityContext:
+            {{- toYaml .Values.docker_daemon.securityContext | nindent 12 }}
+          image: "{{ .Values.docker_daemon.image.repository }}:{{ .Values.docker_daemon.image.tag }}"
+          imagePullPolicy: {{ .Values.docker_daemon.image.pullPolicy }}
+          env:
+            - name: DOCKER_TLS_CERTDIR
+              value: /docker-tls-certs
+          ports:
+            - name: dind-tls
+              containerPort: 2376
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          resources:
+            {{- toYaml .Values.docker_daemon.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /docker-tls-secrets
+              name: docker-tls-secrets
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -69,8 +104,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.vscode_server.persistence.enabled }}
       volumes:
+        - name: docker-tls-certs
+          secret:
+            secretName: {{ include "vscode-server.fullname" . }}-docker-tls
+            defaultMode: 0600
+      {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
           persistentVolumeClaim:
             claimName: {{ include "vscode-server.fullname" . }}-config
