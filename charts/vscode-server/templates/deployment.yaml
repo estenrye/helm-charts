@@ -61,8 +61,8 @@ spec:
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /docker-tls-certs
-              name: docker-tls-certs
+            - mountPath: /docker-tls-certs/client
+              name: docker-tls-certs-client
               readOnly: true
           {{- if .Values.vscode_server.persistence.enabled }}
             - mountPath: /config
@@ -91,8 +91,14 @@ spec:
           resources:
             {{- toYaml .Values.docker_daemon.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /docker-tls-certs
-              name: docker-tls-certs
+            - mountPath: /docker-tls-certs/ca
+              name: docker-tls-certs-ca
+              readOnly: false
+            - mountPath: /docker-tls-certs/server
+              name: docker-tls-certs-server
+              readOnly: false
+            - mountPath: /docker-tls-certs/client
+              name: docker-tls-certs-client
               readOnly: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -107,9 +113,17 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: docker-tls-certs
+        - name: docker-tls-certs-ca
           secret:
-            secretName: {{ include "vscode-server.fullname" . }}-docker-tls
+            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-ca
+            defaultMode: 0664
+        - name: docker-tls-certs-server
+          secret:
+            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-server
+            defaultMode: 0664
+        - name: docker-tls-certs-client
+          secret:
+            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-client
             defaultMode: 0664
       {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
