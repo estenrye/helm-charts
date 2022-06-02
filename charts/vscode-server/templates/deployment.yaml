@@ -61,8 +61,8 @@ spec:
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /docker-tls-secrets
-              name: docker-tls-secrets
+            - mountPath: /docker-tls-certs
+              name: docker-tls-certs
           {{- if .Values.vscode_server.persistence.enabled }}
             - mountPath: /config
               name: config
@@ -90,8 +90,8 @@ spec:
           resources:
             {{- toYaml .Values.docker_daemon.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /docker-tls-secrets
-              name: docker-tls-secrets
+            - mountPath: /docker-tls-certs
+              name: docker-tls-certs
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
