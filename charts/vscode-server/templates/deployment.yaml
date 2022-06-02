@@ -28,7 +28,7 @@ spec:
         - name: code-server
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.vscode_server.image.repository }}:{{ .Values.vscode_server.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.password.enabled }}
           env:
@@ -40,7 +40,7 @@ spec:
           {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.containerPort }}
+              containerPort: {{ .Values.vscode_server.service.containerPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -51,8 +51,8 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          {{- if .Values.persistence.enabled }}
+            {{- toYaml .Values.vscode_server.resources | nindent 12 }}
+          {{- if .Values.vscode_server.persistence.enabled }}
           volumeMounts:
             - mountPath: /config
               name: config
@@ -69,7 +69,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.persistence.enabled }}
+      {{- if .Values.vscode_server.persistence.enabled }}
       volumes:
         - name: config
           persistentVolumeClaim:

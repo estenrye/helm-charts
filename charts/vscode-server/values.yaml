@@ -29,13 +29,6 @@ vscode_server:
     # -- (string) Overrides the image tag for Visual Studio Code Server whose default is the chart appVersion.
     tag: ""
 
-  # -- map of annotations to apply to the pod.
-  podAnnotations: {}
-
-  # -- map of pod security context settings to apply to the pod.
-  podSecurityContext: {}
-    # fsGroup: 2000
-
   # -- map of security context settings to apply to the pod.
   securityContext: {}
     # capabilities:
@@ -82,12 +75,6 @@ vscode_server:
     #   cpu: 100m
     #   memory: 128Mi
 
-  nodeSelector: {}
-
-  tolerations: []
-
-  affinity: {}
-
   persistence:
     enabled: false
     annotations: {}
@@ -112,13 +99,6 @@ docker_daemon:
 
     # -- (string) Overrides the image tag for Docker Daemon whose default is `dind-rootless`.
     tag: "dind-rootless"
-
-  # -- map of annotations to apply to the pod.
-  podAnnotations: {}
-
-  # -- map of pod security context settings to apply to the pod.
-  podSecurityContext: {}
-    # fsGroup: 2000
 
   # -- map of security context settings to apply to the pod.
   securityContext: {}
@@ -149,11 +129,18 @@ docker_daemon:
     #   cpu: 100m
     #   memory: 128Mi
 
-  nodeSelector: {}
+# -- map of annotations to apply to the pod.
+podAnnotations: {}
 
-  tolerations: []
+# -- map of pod security context settings to apply to the pod.
+podSecurityContext: {}
+  # fsGroup: 2000
 
-  affinity: {}
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
 
 serviceAccount:
   # -- Specifies whether a service account should be created
