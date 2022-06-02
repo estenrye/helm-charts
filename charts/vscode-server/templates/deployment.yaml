@@ -61,9 +61,6 @@ spec:
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /docker-tls-certs/client
-              name: docker-tls-certs-client
-              readOnly: true
           {{- if .Values.vscode_server.persistence.enabled }}
             - mountPath: /config
               name: config
@@ -90,16 +87,7 @@ spec:
           #     port: http
           resources:
             {{- toYaml .Values.docker_daemon.resources | nindent 12 }}
-          volumeMounts:
-            - mountPath: /docker-tls-certs/ca
-              name: docker-tls-certs-ca
-              readOnly: false
-            - mountPath: /docker-tls-certs/server
-              name: docker-tls-certs-server
-              readOnly: false
-            - mountPath: /docker-tls-certs/client
-              name: docker-tls-certs-client
-              readOnly: false
+          volumeMounts: []
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
