@@ -30,13 +30,14 @@ vscode_server:
     tag: ""
 
   # -- map of security context settings to apply to the pod.
-  securityContext: {}
+  securityContext:
     # capabilities:
     #   drop:
     #   - ALL
     # readOnlyRootFilesystem: true
     # runAsNonRoot: true
     # runAsUser: 1000
+    fsGroup: 1000
 
   service:
     # -- specifies the Kubernetes Service type to create.

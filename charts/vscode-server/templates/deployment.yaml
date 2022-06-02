@@ -110,7 +110,7 @@ spec:
         - name: docker-tls-certs
           secret:
             secretName: {{ include "vscode-server.fullname" . }}-docker-tls
-            defaultMode: 0600
+            defaultMode: 0664
       {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
           persistentVolumeClaim:

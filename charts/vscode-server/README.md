@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -21,7 +21,7 @@ helm repo update
 To install the chart with the release name vscode-server run:
 
 ```bash
-helm install vscode-server estenrye-helm-charts/vscode-server 0.3.4
+helm install vscode-server estenrye-helm-charts/vscode-server 0.3.5
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -30,7 +30,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns vscode-server
-helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.3.4
+helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.3.5
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -79,7 +79,7 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | vscode_server.persistence.storageClassName | string | `""` |  |
 | vscode_server.replicaCount | int | `1` | Number of replicas to provision. |
 | vscode_server.resources | object | `{}` |  |
-| vscode_server.securityContext | object | `{}` | map of security context settings to apply to the pod. |
+| vscode_server.securityContext | object | `{"fsGroup":1000}` | map of security context settings to apply to the pod. |
 | vscode_server.service.containerPort | int | `8443` | port the service should sent traffic to. |
 | vscode_server.service.port | int | `80` | port the service should receive traffic on. |
 | vscode_server.service.type | string | `"ClusterIP"` | specifies the Kubernetes Service type to create. |
