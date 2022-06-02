@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "vscode-server.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "vscode-server.fullname" . }}:{{ .Values.vscode_server.service.port }}']
   restartPolicy: Never

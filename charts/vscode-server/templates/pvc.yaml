@@ -1,36 +1,36 @@
-{{- if .Values.persistence.enabled }}
+{{- if .Values.vscode_server.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "vscode-server.fullname" . }}-config
   labels:
     {{- include "vscode-server.labels" . | nindent 4 }}
-  {{- with .Values.persistence.annotations }}
+  {{- with .Values.vscode_server.persistence.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- with .Values.persistence.accessModes }}
+  {{- with .Values.vscode_server.persistence.accessModes }}
   accessModes:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- with .Values.persistence.dataSource }}
+  {{- with .Values.vscode_server.persistence.dataSource }}
   dataSource:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- with .Values.persistence.resources }}
+  {{- with .Values.vscode_server.persistence.resources }}
   resources:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- with .Values.persistence.selector }}
+  {{- with .Values.vscode_server.persistence.selector }}
   selector:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  storageClassName: {{ .Values.persistence.storageClassName }}
-  {{- if .Values.persistence.volumeMode }}
-  volumeMode: {{ .Values.persistence.volumeMode }}
+  storageClassName: {{ .Values.vscode_server.persistence.storageClassName }}
+  {{- if .Values.vscode_server.persistence.volumeMode }}
+  volumeMode: {{ .Values.vscode_server.persistence.volumeMode }}
   {{- end }}
-  {{- if .Values.persistence.volumeName }}
-  volumneName: {{ .Values.persistence.volumeName }}
+  {{- if .Values.vscode_server.persistence.volumeName }}
+  volumneName: {{ .Values.vscode_server.persistence.volumeName }}
   {{- end }}
 {{- end }}
