@@ -623,6 +623,42 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-06-03T16:37:30.524633509Z"
+    dependencies:
+    - name: step-certificates
+      repository: https://smallstep.github.io/helm-charts/
+      version: 1.18.2+20220324
+    description: A Helm chart for Kubernetes
+    digest: a5764225612d25a6fa6b4000e089f646c20a1b1926ea72521104e6688e26d73e
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: vscode-server
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server
+    - https://github.com/cdr/code-server
+    - https://github.com/linuxserver/docker-code-server
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.3.12-4.4.0/vscode-server-0.3.12.tgz
+    version: 0.3.12
+  - annotations:
+      artifacthub.io/images: |
+        - name: linuxserver/code-server
+          image: linuxserver/code-server:4.4.0
+        - name: library/docker
+          image: library/docker:dind-rootless
+      artifacthub.io/links: |
+        - name: code-server Documentation
+          url: https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md
+        - name: LinuxServer.io Fleet - linuxserver/code-server
+          url: https://fleet.linuxserver.io/image?name=linuxserver/code-server
+        - name: How To Set Up the code-server Cloud IDE Platform on DigitalOcean Kubernetes
+          url: https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-digitalocean-kubernetes
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-06-02T21:08:59.493237542Z"
     dependencies:
     - name: step-certificates
@@ -1113,4 +1149,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-02T21:08:59.493394242Z"
+generated: "2022-06-03T16:37:30.524789118Z"
