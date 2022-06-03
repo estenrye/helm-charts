@@ -16,9 +16,11 @@ step-certificates:
           federateRoots: []
           crt: /home/step/certs/intermediate_ca.crt
           key: /home/step/secrets/intermediate_ca_key
-          address: :443
+          address: 0.0.0.0:9000
           dnsNames:
-            - step-ca.svc.cluster.local
+            - code-server-step-ca.services.default.example.com
+            - code-server-step-certificates.default.svc.cluster.local
+            - 127.0.0.1
           logger:
             format: json
           db:

@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.3.11](https://img.shields.io/badge/Version-0.3.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.3.12](https://img.shields.io/badge/Version-0.3.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -21,7 +21,7 @@ helm repo update
 To install the chart with the release name vscode-server run:
 
 ```bash
-helm install vscode-server estenrye-helm-charts/vscode-server 0.3.11
+helm install vscode-server estenrye-helm-charts/vscode-server 0.3.12
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -30,7 +30,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns vscode-server
-helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.3.11
+helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.3.12
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -56,7 +56,7 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
-| step-certificates | object | `{"inject":{"certificates":{"intermediate_ca":null,"root_ca":null},"config":{"files":{"ca.json":{"address":":443","authority":{"provisioners":[]},"crt":"/home/step/certs/intermediate_ca.crt","db":{"dataSource":"/home/step/db","type":"badgerv2"},"dnsNames":["step-ca.svc.cluster.local"],"federateRoots":[],"key":"/home/step/secrets/intermediate_ca_key","logger":{"format":"json"},"root":"/home/step/certs/root_ca.crt","tls":{"cipherSuites":["TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256","TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"],"maxVersion":1.3,"minVersion":1.2,"renegotiation":false}},"defaults.json":{"ca-config":"/home/step/config/ca.json","ca-url":"https://step-ca.svc.cluster.local","fingerprint":null,"root":"/home/step/certs/root_ca.crt"}}},"enabled":true,"secrets":{"ca_password":null,"provisioner_password":null,"x509":{"intermediate_ca_key":null,"root_ca_key":null}}}}` | step-certificates injects configuration for step-ca to generate run the following command: `step ca init --helm --deployment-type=standalone --name=vscode-server-ca --dns=step-ca.svc.cluster.local --address=:443 --provisioner=step-ca-provisioner > values.yml` |
+| step-certificates | object | `{"inject":{"certificates":{"intermediate_ca":null,"root_ca":null},"config":{"files":{"ca.json":{"address":"0.0.0.0:9000","authority":{"provisioners":[]},"crt":"/home/step/certs/intermediate_ca.crt","db":{"dataSource":"/home/step/db","type":"badgerv2"},"dnsNames":["code-server-step-ca.services.default.example.com","code-server-step-certificates.default.svc.cluster.local","127.0.0.1"],"federateRoots":[],"key":"/home/step/secrets/intermediate_ca_key","logger":{"format":"json"},"root":"/home/step/certs/root_ca.crt","tls":{"cipherSuites":["TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256","TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"],"maxVersion":1.3,"minVersion":1.2,"renegotiation":false}},"defaults.json":{"ca-config":"/home/step/config/ca.json","ca-url":"https://step-ca.svc.cluster.local","fingerprint":null,"root":"/home/step/certs/root_ca.crt"}}},"enabled":true,"secrets":{"ca_password":null,"provisioner_password":null,"x509":{"intermediate_ca_key":null,"root_ca_key":null}}}}` | step-certificates injects configuration for step-ca to generate run the following command: `step ca init --helm --deployment-type=standalone --name=vscode-server-ca --dns=step-ca.svc.cluster.local --address=:443 --provisioner=step-ca-provisioner > values.yml` |
 | tolerations | list | `[]` |  |
 | vscode_server.fullnameOverride | string | `""` |  |
 | vscode_server.image.pullPolicy | string | `"IfNotPresent"` | Configures the image pull policy for Visual Studio Code Server.  Valid options include [`Always`, `IfNotPresent`, `Never`] |
