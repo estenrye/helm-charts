@@ -30,7 +30,7 @@ spec:
   issuerRef:
     name: namespace-issuer
     kind: StepIssuer
-    group: cert-manager.io
+    group: certmanager.step.sm
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -64,4 +64,4 @@ spec:
   issuerRef:
     name: {{ .Release.Name }}-step-issuer
     kind: StepIssuer
-    group: cert-manager.io
+    group: certmanager.step.sm
