@@ -6,7 +6,7 @@ spec:
   # The CA URL.
   url: https://{{ .Release.Name }}-step-certificates.svc.cluster.local
   # The base64 encoded version of the CA root certificate in PEM format.
-  caBundle:  {{ .Values.step-certificates.inject.certificates.intermediate_ca | b64enc }}
+  caBundle:  {{ .Values."step-certificates".inject.certificates.intermediate_ca | b64enc }}
   # The provisioner name, kid, and a reference to the provisioner password secret.
   provisioner:
     name: {{ .Values.step-certificates.inject.config.files."ca.json".authority.provisioners[0].name }}
