@@ -109,12 +109,12 @@ spec:
           projected:
             sources:
             - secret:
-                name: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
+                name: {{ .Release.Name }}-step-certificates-secrets
                 items:
                   - key: intermediate_ca_key
                     path: ca/key.pem
             - configMap:
-                name: {{ include "vscode-server.fullname" . }}-step-certificates-certs
+                name: {{ .Release.Name }}-step-certificates-certs
                 items:
                   - key: intermediate_ca.crt
                     path: ca/cert.pem
