@@ -108,6 +108,7 @@ spec:
         - name: docker-tls-certs
           defaultMode: 0400
           projected:
+            sources:
             - secret:
                 secretName: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
                 items:
