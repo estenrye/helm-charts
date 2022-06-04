@@ -109,7 +109,7 @@ spec:
           projected:
             sources:
             - secret:
-                secretName: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
+                name: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
                 defaultMode: 0400
                 items:
                   - key: intermediate_ca_key
@@ -121,7 +121,7 @@ spec:
                   - key: intermediate_ca.crt
                     path: ca/cert.pem
             - secret:
-                secretName: {{ include "vscode-server.fullname" . }}-docker-server-tls
+                name: {{ include "vscode-server.fullname" . }}-docker-server-tls
                 defaultMode: 0400
                 items:
                   - key: ca.crt
@@ -131,7 +131,7 @@ spec:
                   - key: tls.key
                     path: server/key.pem
             - secret:
-                secretName: {{ include "vscode-server.fullname" . }}-docker-client-tls
+                name: {{ include "vscode-server.fullname" . }}-docker-client-tls
                 defaultMode: 0400
                 items:
                   - key: ca.crt
