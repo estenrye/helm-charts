@@ -14,7 +14,7 @@ spec:
   subject:
     organizations:
       - code-server-dind
-  commonName: localhost
+  commonName: docker:dind server
   isCA: false
   privateKey:
     algorithm: RSA
@@ -24,9 +24,8 @@ spec:
     - server auth
     - client auth
   dnsNames:
+    - docker:dind server
     - localhost
-  ipAddresses:
-    - 127.0.0.1
   issuerRef:
     name: {{ .Release.Name }}-step-issuer
     kind: StepIssuer
@@ -48,19 +47,17 @@ spec:
   subject:
     organizations:
       - code-server-dind
-  commonName: localhost
+  commonName: docker:dind client
   isCA: false
   privateKey:
     algorithm: RSA
     encoding: PKCS1
     size: 2048
   usages:
-    - server auth
     - client auth
   dnsNames:
+    - docker:dind client
     - localhost
-  ipAddresses:
-    - 127.0.0.1
   issuerRef:
     name: {{ .Release.Name }}-step-issuer
     kind: StepIssuer
