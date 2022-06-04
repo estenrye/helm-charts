@@ -623,6 +623,52 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-06-04T17:05:26.072191987Z"
+    dependencies:
+    - name: step-certificates
+      repository: https://smallstep.github.io/helm-charts/
+      version: 1.18.2+20220324
+    - name: step-issuer
+      repository: https://smallstep.github.io/helm-charts/
+      tags:
+      - install-step-issuer
+      version: 0.6.4
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      tags:
+      - install-cert-manager
+      version: v1.8.0
+    description: A Helm chart for Kubernetes
+    digest: be8642753b338aa9ab24baa178cfddaf1e782d75ffdad3c9bc431b4c781e6495
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: vscode-server
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server
+    - https://github.com/cdr/code-server
+    - https://github.com/linuxserver/docker-code-server
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.4.8-4.4.0/vscode-server-0.4.8.tgz
+    version: 0.4.8
+  - annotations:
+      artifacthub.io/images: |
+        - name: linuxserver/code-server
+          image: linuxserver/code-server:4.4.0
+        - name: library/docker
+          image: library/docker:dind-rootless
+      artifacthub.io/links: |
+        - name: code-server Documentation
+          url: https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md
+        - name: LinuxServer.io Fleet - linuxserver/code-server
+          url: https://fleet.linuxserver.io/image?name=linuxserver/code-server
+        - name: How To Set Up the code-server Cloud IDE Platform on DigitalOcean Kubernetes
+          url: https://www.digitalocean.com/community/tutorials/how-to-set-up-the-code-server-cloud-ide-platform-on-digitalocean-kubernetes
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-06-04T16:47:47.479615193Z"
     dependencies:
     - name: step-certificates
@@ -1517,4 +1563,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-04T16:47:47.479863695Z"
+generated: "2022-06-04T17:05:26.072607589Z"
