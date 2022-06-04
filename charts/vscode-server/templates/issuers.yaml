@@ -4,9 +4,9 @@ metadata:
   name: {{ .Release.Name }}-step-issuer
 spec:
   # The CA URL.
-  url: https://{{ .Release.Name }}-step-certificates.svc.cluster.local
+  url: https://{{ .Release.Name }}-step-certificates.{{ .Release.Namespace }}.svc.cluster.local
   # The base64 encoded version of the CA root certificate in PEM format.
-  caBundle:  {{ index .Values "step-certificates" "inject" "certificates" "intermediate_ca" | b64enc }}
+  caBundle:  {{ index .Values "step-certificates" "inject" "certificates" "root_ca" | b64enc }}
   # The provisioner name, kid, and a reference to the provisioner password secret.
   provisioner:
     name: {{ index .Values "step-certificates" "inject" "config" "files" "ca.json" "authority" "provisioners" 0 "name" }}
