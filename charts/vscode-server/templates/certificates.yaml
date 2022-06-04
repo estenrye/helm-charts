@@ -1,0 +1,67 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "vscode-server.fullname" . }}-docker-server
+  labels:
+    {{- include "vscode-server.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "vscode-server.fullname" . }}-docker-server-tls
+  secretTemplate:
+    labels:
+      {{- include "vscode-server.labels" . | nindent 4 }}
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  subject:
+    organizations:
+      - code-server-dind
+  commonName: localhost
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+  issuerRef:
+    name: namespace-issuer
+    kind: Issuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "vscode-server.fullname" . }}-docker-client
+  labels:
+    {{- include "vscode-server.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "vscode-server.fullname" . }}-docker-client-tls
+  secretTemplate:
+    labels:
+      {{- include "vscode-server.labels" . | nindent 4 }}
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  subject:
+    organizations:
+      - code-server-dind
+  commonName: localhost
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+  issuerRef:
+    name: {{ .Release.Name }}-step-issuer
+    kind: Issuer
+    group: cert-manager.io

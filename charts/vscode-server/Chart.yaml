@@ -15,7 +15,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.12
+version: 0.4.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -29,6 +29,16 @@ dependencies:
   - name: step-certificates
     repository: https://smallstep.github.io/helm-charts/
     version: 1.18.2+20220324
+  - name: step-issuer
+    repository: https://smallstep.github.io/helm-charts/
+    version: 0.6.4
+    tags:
+      - install-step-issuer
+  - name: cert-manager
+    repository: https://charts.jetstack.io
+    version: v1.8.0
+    tags:
+      - install-cert-manager
 
 sources:
   - https://github.com/estenrye/helm-charts/tree/main/charts/vscode-server

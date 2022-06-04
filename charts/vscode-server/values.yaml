@@ -5,6 +5,10 @@
 # -- step-certificates injects configuration for step-ca
 # to generate run the following command:
 # `step ca init --helm --deployment-type=standalone --name=vscode-server-ca --dns=step-ca.svc.cluster.local --address=:443 --provisioner=step-ca-provisioner > values.yml`
+tags:
+  install-cert-manager: false
+  install-step-issuer: false
+
 step-certificates:
   inject:
     enabled: true
@@ -20,6 +24,7 @@ step-certificates:
           dnsNames:
             - code-server-step-ca.services.default.example.com
             - code-server-step-certificates.default.svc.cluster.local
+            - code-server-step-certificates.svc.cluster.local
             - 127.0.0.1
           logger:
             format: json

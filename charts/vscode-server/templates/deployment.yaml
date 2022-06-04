@@ -101,18 +101,34 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: docker-tls-certs-ca
-          secret:
-            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-ca
-            defaultMode: 0664
-        - name: docker-tls-certs-server
-          secret:
-            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-server
-            defaultMode: 0664
-        - name: docker-tls-certs-client
-          secret:
-            secretName: {{ include "vscode-server.fullname" . }}-docker-tls-client
-            defaultMode: 0664
+        # - name: docker-tls-certs
+        #   projected:
+        #     - secret:
+        #         secretName: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
+        #         defaultMode: 0400
+        #         items:
+        #           - key: intermediate_ca_key
+        #             path: ca/key.pem
+        #     - configMap:
+        #         name: {{ include "vscode-server.fullname" . }}-step-certificates-certs
+        #         defaultMode: 0400
+        #         items:
+        #           - key: intermediate_ca.crt
+        #             path: ca/cert.pem
+        #     - secret:
+        #         secretName: {{ include "vscode-server.fullname" . }}-step-certificates-secrets
+        #         defaultMode: 0400
+        #         items:
+        #           - key: intermediate_ca_key
+        #             path: server/key.pem
+        # - name: docker-tls-certs-server
+        #   secret:
+        #     secretName: {{ include "vscode-server.fullname" . }}-docker-tls-server
+        #     defaultMode: 0664
+        # - name: docker-tls-certs-client
+        #   secret:
+        #     secretName: {{ include "vscode-server.fullname" . }}-docker-tls-client
+        #     defaultMode: 0664
       {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
           persistentVolumeClaim:
