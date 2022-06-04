@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.4.8](https://img.shields.io/badge/Version-0.4.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.4.9](https://img.shields.io/badge/Version-0.4.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -21,7 +21,7 @@ helm repo update
 To install the chart with the release name vscode-server run:
 
 ```bash
-helm install vscode-server estenrye-helm-charts/vscode-server 0.4.8
+helm install vscode-server estenrye-helm-charts/vscode-server 0.4.9
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -30,7 +30,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns vscode-server
-helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.4.8
+helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.4.9
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
