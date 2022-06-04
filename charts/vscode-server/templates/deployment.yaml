@@ -132,11 +132,11 @@ spec:
                 secretName: {{ include "vscode-server.fullname" . }}-docker-client-tls
                 items:
                   - key: ca.crt
-                    path: server/ca.pem
+                    path: client/ca.pem
                   - key: tls.crt
-                    path: server/cert.pem
+                    path: client/cert.pem
                   - key: tls.key
-                    path: server/key.pem
+                    path: client/key.pem
       {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
           persistentVolumeClaim:
