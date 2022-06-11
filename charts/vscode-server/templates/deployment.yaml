@@ -60,10 +60,8 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
-          volumeMounts:
-            - mountPath: /docker-tls-certs
-              name: docker-tls-certs
           {{- if .Values.vscode_server.persistence.enabled }}
+          volumeMounts:
             - mountPath: /config
               name: config
           {{- end }}
