@@ -60,10 +60,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.vscode_server.resources | nindent 12 }}
-          {{- if .Values.vscode_server.persistence.enabled }}
           volumeMounts:
-            - mountPath: /config
+          {{- if .Values.vscode_server.persistence.enabled }}
+            - mountPath: /config/workspace
               name: config
+          {{- end }}
+          {{- if .Values.vscode_server.ssh-key.enabled }}
+            - mountPath: /config/.ssh
+              name: ssh-key
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -77,9 +81,14 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.vscode_server.persistence.enabled }}
       volumes:
+      {{- if .Values.vscode_server.persistence.enabled }}
         - name: config
           persistentVolumeClaim:
             claimName: {{ include "vscode-server.fullname" . }}-config
+      {{- end }}
+      {{- if .Values.vscode_server.ssh-key.enabled }}
+        - name: ssh-key
+          secret:
+            secretName: {{ include "vscode-server.fullname" . }}-ssh-key
       {{- end }}
