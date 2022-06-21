@@ -92,7 +92,7 @@ vscode_server:
 
   image:
     # -- Visual Studio Code Server Image Repository Name.
-    repository: linuxserver/code-server
+    repository: estenrye/vscode-server
 
     # -- Configures the image pull policy for Visual Studio Code Server.  Valid options include
     # [`Always`, `IfNotPresent`, `Never`]
