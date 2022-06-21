@@ -1,6 +1,6 @@
 # vscode-server For Kubernetes
 
-![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Version: 0.5.6](https://img.shields.io/badge/Version-0.5.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square) ![Docker](https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Helm](https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
 
 ## Description
@@ -21,7 +21,7 @@ helm repo update
 To install the chart with the release name vscode-server run:
 
 ```bash
-helm install vscode-server estenrye-helm-charts/vscode-server 0.5.5
+helm install vscode-server estenrye-helm-charts/vscode-server 0.5.6
 ```
 
 After a few seconds, Bitwarden Directory Connector should be running as a CronJob.
@@ -30,7 +30,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns vscode-server
-helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.5.5
+helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode-server --version 0.5.6
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -113,9 +113,9 @@ helm install vscode-server estenrye-helm-charts/vscode-server --namespace vscode
 | vscode_server.service.containerPort | int | `8443` | port the service should sent traffic to. |
 | vscode_server.service.port | int | `80` | port the service should receive traffic on. |
 | vscode_server.service.type | string | `"ClusterIP"` | specifies the Kubernetes Service type to create. |
-| vscode_server.ssh-key.enabled | bool | `false` | When true, enables creation of secret containing the ssh key of the user. |
-| vscode_server.ssh-key.id_rsa.key | string | `nil` | Base64 encoded private key for the user. |
-| vscode_server.ssh-key.id_rsa.pub | string | `nil` | Base64 encoded public key for the user. |
+| vscode_server.ssh_key.enabled | bool | `false` | When true, enables creation of secret containing the ssh key of the user. |
+| vscode_server.ssh_key.id_rsa.key | string | `nil` | Base64 encoded private key for the user. |
+| vscode_server.ssh_key.id_rsa.pub | string | `nil` | Base64 encoded public key for the user. |
 
 ## Source Code
 

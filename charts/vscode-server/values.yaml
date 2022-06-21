@@ -87,7 +87,7 @@ vscode_server:
     # environment variable.
     value: ""
 
-  ssh-key:
+  ssh_key:
     # -- When true, enables creation of secret containing the ssh
     # key of the user.
     enabled: false

@@ -65,7 +65,7 @@ spec:
             - mountPath: /config/workspace
               name: config
           {{- end }}
-          {{- if .Values.vscode_server.ssh-key.enabled }}
+          {{- if .Values.vscode_server.ssh_key.enabled }}
             - mountPath: /config/.ssh
               name: ssh-key
           {{- end }}
@@ -87,7 +87,7 @@ spec:
           persistentVolumeClaim:
             claimName: {{ include "vscode-server.fullname" . }}-config
       {{- end }}
-      {{- if .Values.vscode_server.ssh-key.enabled }}
+      {{- if .Values.vscode_server.ssh_key.enabled }}
         - name: ssh-key
           secret:
             secretName: {{ include "vscode-server.fullname" . }}-ssh-key
