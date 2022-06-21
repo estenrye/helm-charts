@@ -87,6 +87,16 @@ vscode_server:
     # environment variable.
     value: ""
 
+  ssh-key:
+    # -- When true, enables creation of secret containing the ssh
+    # key of the user.
+    enabled: false
+    id_rsa:
+      # -- Base64 encoded private key for the user.
+      key:
+      # -- Base64 encoded public key for the user.
+      pub:
+  
   # -- Number of replicas to provision.
   replicaCount: 1
 
