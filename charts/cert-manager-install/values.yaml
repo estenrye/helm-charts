@@ -1,0 +1,26 @@
+# Default values for cert-manager-install.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- Sets the email for ACME Certificate Server
+# registration and notifications.
+acme_email: ''
+
+# -- Sets the target ACME Server to send certificate requests.
+acme_server: https://acme-v02.api.letsencrypt.org/directory
+
+# -- Sets the Cloudflare API Token for DNS-01 challenges
+cloudflare_api_token: ''
+
+cert-manager:
+  enabled: false
+  global:
+    # -- Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
+    logLevel: 2
+  # -- When true, installs the cert-manager CRDs
+  installCRDs: true
+  podDnsPolicy: "None"
+  podDnsConfig:
+    nameservers:
+      - "1.1.1.1"
+      - "1.0.0.1"

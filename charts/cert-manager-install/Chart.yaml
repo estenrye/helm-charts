@@ -1,0 +1,58 @@
+apiVersion: v2
+name: cert-manager-install
+description: |
+  A Helm chart for installing and configuring cert-manager
+  in my home lab environment using Cloudflare, Lets Encrypt
+  and the ACME DNS01 challenge Cluster Issuer.
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "v1.8.2"
+
+home: https://github.com/estenrye/helm-charts
+
+dependencies:
+  - name: cert-manager
+    repository: https://charts.jetstack.io
+    version: v1.8.2
+    condition: cert-manager.enabled
+
+sources:
+  - https://github.com/estenrye/helm-charts/tree/main/charts/cert-manager-install
+  - https://github.com/cert-manager/cert-manager
+
+maintainers:
+  - name: Esten Rye
+    url: https://github.com/estenrye
+
+annotations:
+  artifacthub.io/images: |
+    - name: quay.io/jetstack/cert-manager-cainjector
+      image: quay.io/jetstack/cert-manager-cainjector:v1.8.2
+    - name: quay.io/jetstack/cert-manager-controller
+      image: quay.io/jetstack/cert-manager-controller:v1.8.2
+    - name: quay.io/jetstack/cert-manager-webhook
+      image: quay.io/jetstack/cert-manager-webhook:v1.8.2
+
+  artifacthub.io/links: |
+    - name: cert-manager chart
+      url: https://artifacthub.io/packages/helm/cert-manager/cert-manager
+    
+  artifacthub.io/operator: "true"
