@@ -129,6 +129,43 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/0.0.3-helm/bitwarden-directory-connector-0.0.3.tgz
     version: 0.0.3
+  cert-manager-install:
+  - annotations:
+      artifacthub.io/images: |
+        - name: quay.io/jetstack/cert-manager-cainjector
+          image: quay.io/jetstack/cert-manager-cainjector:v1.8.2
+        - name: quay.io/jetstack/cert-manager-controller
+          image: quay.io/jetstack/cert-manager-controller:v1.8.2
+        - name: quay.io/jetstack/cert-manager-webhook
+          image: quay.io/jetstack/cert-manager-webhook:v1.8.2
+      artifacthub.io/links: |
+        - name: cert-manager chart
+          url: https://artifacthub.io/packages/helm/cert-manager/cert-manager
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v1.8.2
+    created: "2022-07-21T02:21:43.530751747Z"
+    dependencies:
+    - condition: cert-manager.enabled
+      name: cert-manager
+      repository: https://charts.jetstack.io
+      version: v1.8.2
+    description: 'A Helm chart for installing and configuring cert-manager in my home
+      lab environment using Cloudflare, Lets Encrypt and the ACME DNS01 challenge
+      Cluster Issuer. '
+    digest: 714a20a5e87a49fe890aa4815cc269ea4e7c9d3adbcc4f33ce172f3e1a832f9c
+    home: https://github.com/estenrye/helm-charts
+    maintainers:
+    - name: Esten Rye
+      url: https://github.com/estenrye
+    name: cert-manager-install
+    sources:
+    - https://github.com/estenrye/helm-charts/tree/main/charts/cert-manager-install
+    - https://github.com/cert-manager/cert-manager
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/cert-manager-install-0.1.0-v1.8.2/cert-manager-install-0.1.0.tgz
+    version: 0.1.0
   fluentd-aws-cloudtrail-processor:
   - annotations:
       artifacthub.io/images: |
@@ -2391,4 +2428,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-21T05:59:44.118226392Z"
+generated: "2022-07-21T02:21:43.765511765Z"
