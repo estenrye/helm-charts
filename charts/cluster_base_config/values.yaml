@@ -1,2 +1,5 @@
+# -- name of the cluster
 cluster_name: ""
+
+# -- top level domain to use in dns suffixes
 top_level_domain: example.com
