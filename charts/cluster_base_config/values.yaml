@@ -3,3 +3,6 @@ cluster_name: ""
 
 # -- top level domain to use in dns suffixes
 top_level_domain: example.com
+
+# -- ip address for ingress-nginx controller load balacer service
+ingress_nginx_load_balancer_ip: ""
