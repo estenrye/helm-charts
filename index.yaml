@@ -169,6 +169,16 @@ entries:
   cluster_base_config:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-07-28T16:44:17.876911043Z"
+    description: A Helm chart for installing common configuration data.
+    digest: e557a3e70735168f65b0cde8f7e29d0d8f49692872a5cc1b552b1909c72e2996
+    name: cluster_base_config
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/cluster_base_config-0.1.2-1.0.0/cluster_base_config-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-07-28T16:35:06.650677711Z"
     description: A Helm chart for installing common configuration data.
     digest: 68ac064c78b51ce9dd7e2514f5e458693c6f713d1416a4d55a2960cf73be8ab0
@@ -2449,4 +2459,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-28T16:35:06.89186379Z"
+generated: "2022-07-28T16:44:18.206847234Z"
