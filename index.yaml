@@ -166,6 +166,17 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/cert-manager-install-0.1.0-v1.8.2/cert-manager-install-0.1.0.tgz
     version: 0.1.0
+  cluster_base_config:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-07-28T16:26:47.92581254Z"
+    description: A Helm chart for installing common configuration data.
+    digest: 925e47f3f12c3df8186f29085ff250e603da5bffa125879f1ad717cad4f0fc74
+    name: cluster_base_config
+    type: application
+    urls:
+    - https://github.com/estenrye/helm-charts/releases/download/cluster_base_config-0.1.0-1.0.0/cluster_base_config-0.1.0.tgz
+    version: 0.1.0
   fluentd-aws-cloudtrail-processor:
   - annotations:
       artifacthub.io/images: |
@@ -2428,4 +2439,4 @@ entries:
     urls:
     - https://github.com/estenrye/helm-charts/releases/download/vscode-server-0.1.0-4.4.0/vscode-server-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-21T02:21:43.765511765Z"
+generated: "2022-07-28T16:26:48.168131352Z"
