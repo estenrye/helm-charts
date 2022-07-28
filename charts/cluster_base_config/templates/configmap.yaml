@@ -6,6 +6,6 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: cluster_base_config
+  name: cluster-base-config
   labels:
     {{- include "cluster_base_config.labels" . | nindent 4 }}
