@@ -30,7 +30,7 @@ dependencies:
     version: 1.18.2+20220324
   - name: step-issuer
     repository: https://smallstep.github.io/helm-charts/
-    version: 0.6.4
+    version: 1.9.1
     tags:
       - install-step-issuer
   - name: cert-manager
