@@ -27,7 +27,7 @@ home: https://github.com/estenrye/helm-charts
 dependencies:
   - name: step-certificates
     repository: https://smallstep.github.io/helm-charts/
-    version: 1.18.2+20220324
+    version: 1.27.4
   - name: step-issuer
     repository: https://smallstep.github.io/helm-charts/
     version: 0.6.4
