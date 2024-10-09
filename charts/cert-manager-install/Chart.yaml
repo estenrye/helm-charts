@@ -31,7 +31,7 @@ home: https://github.com/estenrye/helm-charts
 dependencies:
   - name: cert-manager
     repository: https://charts.jetstack.io
-    version: v1.8.2
+    version: v1.16.1
     condition: cert-manager.enabled
 
 sources:
