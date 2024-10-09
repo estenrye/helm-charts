@@ -35,7 +35,7 @@ dependencies:
       - install-step-issuer
   - name: cert-manager
     repository: https://charts.jetstack.io
-    version: v1.8.0
+    version: v1.16.1
     tags:
       - install-cert-manager
 
